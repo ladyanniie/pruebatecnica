@@ -1,0 +1,75 @@
+<!--
+  Generated template for the InformacionPersonaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Informacion</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <ion-card>
+        <ion-card-content>
+          <ion-card-title icon-left>
+              <ion-icon color="secondary" name="ios-person"></ion-icon> Rut: {{datos_personales.rut}}<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nombre: {{datos_personales.nombre}} {{datos_personales.apellido}}
+            </ion-card-title>
+            
+        </ion-card-content>
+      </ion-card>   
+      <div  *ngIf="_pp.validar_rut.length>0">
+          
+          <ion-label color="danger">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{_pp.validar_rut}}</ion-label>
+        </div>
+       
+        <ion-card>
+            <ion-card-content>
+              <ion-card-title icon-left>
+                  <ion-icon color="primary" name="ios-call"></ion-icon>Telefono: {{datos_personales.telefono}}
+                </ion-card-title>
+            </ion-card-content>
+        </ion-card>
+        <ion-card>
+            <ion-card-content>
+              <ion-card-title icon-left>
+                  <ion-icon color="danger" name="md-calendar"></ion-icon>Fecha de Nacimiento: {{datos_personales.fechaNacimiento}}
+                </ion-card-title>
+               
+            </ion-card-content>
+        </ion-card>
+        <div  *ngIf="validacion_fecha.length>0">
+            <ion-label color="danger">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{validacion_fecha}}</ion-label>
+          </div>
+        <ion-card *ngIf="datos_personales.direccion.comuna?.length>0">
+            <ion-card-content icon-left >
+              <ion-card-title>
+                  <ion-icon color="light" name="md-navigate"></ion-icon>Direccion: {{datos_personales.direccion.comuna}} {{datos_personales.direccion.calle}} {{datos_personales.direccion.numero}}
+                </ion-card-title>
+            </ion-card-content>
+        </ion-card>
+          <ion-card  *ngIf="datos_personales.direccion.nombre?.length>0; else prueba">
+                <ion-card-content icon-left >
+                  <ion-card-title>
+                      <ion-icon color="light" name="md-navigate"></ion-icon>Direccion: {{datos_personales.direccion.nombre}} {{datos_personales.direccion.calle}} {{datos_personales.direccion.numero}}
+                    </ion-card-title>
+                </ion-card-content>
+          </ion-card>
+          <ng-template #prueba>
+              <ion-card *ngIf="datos_personales.direccion.comuna.nombre?.length>0">
+                  <ion-card-content icon-left >
+                    <ion-card-title>
+                        <ion-icon color="light" name="md-navigate"></ion-icon>Direccion: {{datos_personales.direccion.comuna.nombre}} {{datos_personales.direccion.calle}} {{datos_personales.direccion.numero}}
+                      </ion-card-title>
+                  </ion-card-content>
+            </ion-card>
+          </ng-template>
+          
+          
+        
+</ion-content>

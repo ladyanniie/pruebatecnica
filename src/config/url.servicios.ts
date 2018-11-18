@@ -1,0 +1,1 @@
+export const URL_SERVICIOS="https://my-json-server.typicode.com/HaibuSolutions/prueba-tecnica-sf/user";
